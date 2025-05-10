@@ -70,6 +70,47 @@ export default function Home() {
         </div>
       </section>
 
+       {/* Nova seção: Depoimentos */}
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-10">O que nossos pacientes dizem</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-gray-50 p-6 rounded-lg shadow">
+              <p className="text-gray-700 italic">“Excelente atendimento e resultado maravilhoso! Recomendo de olhos fechados.”</p>
+              <p className="mt-4 font-bold text-cyan-700">Juliana M.</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg shadow">
+              <p className="text-gray-700 italic">“Ambiente muito acolhedor e profissionais extremamente competentes.”</p>
+              <p className="mt-4 font-bold text-cyan-700">Carlos F.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Nova seção: Diferenciais */}
+      <section className="py-20 px-6 bg-cyan-50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10">Por que escolher nossa clínica?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-5xl text-cyan-600 mb-4">🦷</div>
+              <h3 className="text-lg font-semibold mb-2">Equipe Especializada</h3>
+              <p className="text-gray-600">Profissionais capacitados nas diversas áreas da odontologia para cuidar de você.</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl text-cyan-600 mb-4">⌚</div>
+              <h3 className="text-lg font-semibold mb-2">Horários Flexíveis</h3>
+              <p className="text-gray-600">Atendimento em horários adaptados à sua rotina para maior conveniência.</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl text-cyan-600 mb-4">📍</div>
+              <h3 className="text-lg font-semibold mb-2">Localização Acessível</h3>
+              <p className="text-gray-600">Estamos em uma área central com fácil acesso e estacionamento.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Botão WhatsApp */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -128,6 +169,40 @@ export default function Home() {
           </form>
         </div>
       </motion.section>
+
+     {/* Localização e Contato */}
+      <section className="py-20 px-6 bg-gray-50">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+          <div className="flex flex-col justify-center">
+            <h3 className="text-2xl font-semibold mb-4">Informações da Clínica</h3>
+            <div className="flex items-center mb-3">
+              <Image src="/icons/location.svg" alt="Ícone endereço" width={24} height={24} className="mr-2" />
+              <p>Av. Paulista, 1000 - Bela Vista, São Paulo - SP</p>
+            </div>
+            <div className="flex items-center mb-3">
+              <Image src="/icons/phone.svg" alt="Ícone telefone" width={24} height={24} className="mr-2" />
+              <p>(11) 1234-5678</p>
+            </div>
+            <div className="flex items-center mb-3">
+              <Image src="/icons/email.svg" alt="Ícone email" width={24} height={24} className="mr-2" />
+              <p>contato@clinicadentista.com</p>
+            </div>
+            <div className="flex items-center mb-3">
+              <Image src="/icons/clock.svg" alt="Ícone horário" width={24} height={24} className="mr-2" />
+              <p>Seg a Sex: 8h às 18h</p>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold mb-4">Nossa Localização</h2>
+            <iframe
+              className="w-full h-64 rounded-lg border"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9139930564397!2d-46.65657328447519!3d-23.57338036854386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2354a5e3d%3A0xd59e7f5098cda89a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1625234123456"
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-gray-100 text-center text-sm text-gray-500 py-6">
