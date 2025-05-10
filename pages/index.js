@@ -31,7 +31,7 @@ export default function Home() {
       {/* Imagens e Benefícios */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          {["/public/dentista1.jpg", "/public/aparelho.jpg", "/public/consultorio.jpg"].map((src, i) => (
+          {["/dentista1.jpg", "/aparelho.jpg", "/consultorio.jpg"].map((src, i) => (
             <motion.div
               key={src}
               whileHover={{ scale: 1.05 }}
