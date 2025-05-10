@@ -46,6 +46,26 @@ export default function Home() {
     useEffect(() => {
     // Garantir que o código só seja executado no cliente
     setIsClient(true);
+     if (typeof window !== "undefined") {
+      const script = document.createElement("script");
+      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCYfISsihAni0j2hLuyzF09tMnrZmPggLM&callback=initMap`;
+      script.async = true;
+      document.head.appendChild(script);
+
+      // Função de inicialização do mapa
+      window.initMap = () => {
+        const map = new window.google.maps.Map(document.getElementById("map"), {
+          center: { lat: -23.55052, lng: -46.633308 }, // Latitude e longitude para São Paulo
+          zoom: 15,
+        });
+        
+        const marker = new window.google.maps.Marker({
+          position: { lat: -23.55052, lng: -46.633308 },
+          map,
+          title: "Clínica Odontológica",
+        });
+      };
+    }
   }, []);
 
   const nextSlide = () => {
@@ -227,10 +247,18 @@ export default function Home() {
               <p>Seg a Sex: 8h às 18h</p>
             </div>
           </div>
-          <div>
-            <h4 className="text-3xl font-bold mb-4">Nossa Localização</h4>
-            <div id="map" className="w-full h-64 rounded-lg border"></div>
-          </div>
+          {/* Mapa */}
+            <div>
+              <div
+                id="map"
+                style={{
+                  height: "400px",
+                  width: "100%",
+                  borderRadius: "10px",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                }}
+              ></div>
+            </div>
         </div>
       </section>
 
