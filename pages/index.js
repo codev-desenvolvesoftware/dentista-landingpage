@@ -7,25 +7,58 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export default function Home() {
   const [formData, setFormData] = useState({ nome: '', telefone: '', mensagem: '' });
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const [isClient, setIsClient] = useState(false); 
 
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCYfISsihAni0j2hLuyzF09tMnrZmPggLM&callback=initMap`;
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
+    const beneficios = [
+    {
+      src: '/dentista1.jpeg',
+      alt: 'Imagem dentista',
+      title: 'Atendimento Personalizado',
+      text: 'Nosso compromisso é oferecer um atendimento humanizado, com foco em cada detalhe do seu sorriso.'
+    },
+    {
+      src: '/aparelho.jpg',
+      alt: 'Imagem aparelho ortodôntico',
+      title: 'Ortodontia de Alta Tecnologia',
+      text: 'Corrija o alinhamento dos dentes com discrição e conforto, usando tecnologia de ponta em ortodontia.'
+    },
+    {
+      src: '/consultorio.jpeg',
+      alt: 'Imagem consultório',
+      title: 'Ambiente Moderno e Acolhedor',
+      text: 'Consultório equipado com tecnologia de última geração para garantir conforto e segurança aos nossos pacientes.'
+    },
+    {
+      src: '/higiene.jpg',
+      alt: 'Imagem higiene bucal',
+      title: 'Higiene Bucal',
+      text: 'Educação e acompanhamento constante para garantir a melhor saúde bucal para você e sua família.'
+    },
+    {
+      src: '/raiox.jpg',
+      alt: 'Imagem raio-x dental',
+      title: 'Raio-X Digital',
+      text: 'Diagnósticos precisos com exames rápidos e de alta definição realizados na própria clínica.'
+    }
+  ];
 
-    window.initMap = function () {
-      new window.google.maps.Map(document.getElementById('map'), {
-        center: { lat: -23.57338, lng: -46.65657 },
-        zoom: 15,
-      });
-    };
-
-    return () => {
-      delete window.initMap;
-    };
+    useEffect(() => {
+    // Garantir que o código só seja executado no cliente
+    setIsClient(true);
   }, []);
+
+  const nextSlide = () => {
+    if (carouselIndex < beneficios.length - 3) setCarouselIndex(carouselIndex + 1);
+  };
+
+  const prevSlide = () => {
+    if (carouselIndex > 0) setCarouselIndex(carouselIndex - 1);
+  };
+
+  if (!isClient) {
+    return null; // Impede a renderização no lado do servidor
+  }
 
   return (
     <main className="bg-white text-gray-800 font-sans">
