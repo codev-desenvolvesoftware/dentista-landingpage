@@ -49,7 +49,7 @@ export default function Home() {
           >
             <Image src="/aparelho.jpg" alt="Imagem aparelho ortodôntico" width={400} height={300} className="w-full h-60 object-cover" />
             <div className="p-4">
-              <h3 className="font-bold text-lg mb-2">Aparelhos Ortodônticos Modernos</h3>
+              <h3 className="font-bold text-lg mb-2">Mais beleza e conforto nos Aparelhos Ortodônticos</h3>
               <p className="text-sm text-gray-600">
                 Corrija o alinhamento dos dentes com discrição e conforto, usando tecnologia de ponta em ortodontia.
               </p>
@@ -59,7 +59,7 @@ export default function Home() {
             whileHover={{ scale: 1.05 }}
             className="bg-white rounded-xl shadow-lg overflow-hidden"
           >
-            <Image src="/consultorio.jpg" alt="Imagem consultório" width={400} height={300} className="w-full h-60 object-cover" />
+            <Image src="/consultorio.jpeg" alt="Imagem consultório" width={400} height={300} className="w-full h-60 object-cover" />
             <div className="p-4">
               <h3 className="font-bold text-lg mb-2">Ambiente Moderno e Acolhedor</h3>
               <p className="text-sm text-gray-600">
