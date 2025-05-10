@@ -30,7 +30,7 @@ export default function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-8 mt-8">
             <div className="w-64 p-4 bg-white rounded-xl shadow-md">
-              <img src="public/dentista1.jpg" alt="Dentista" className="rounded-lg mb-4" />
+              <img src="public/dentista1.jpeg" alt="Dentista" className="rounded-lg mb-4" />
               <h3 className="font-semibold text-xl">Atendimento humanizado</h3>
               <p className="text-sm">Cuidamos do seu bem-estar do início ao fim.</p>
             </div>
@@ -40,7 +40,7 @@ export default function Home() {
               <p className="text-sm">Alinhe seu sorriso com conforto e eficiência.</p>
             </div>
             <div className="w-64 p-4 bg-white rounded-xl shadow-md">
-              <img src="public/consultorio.jpg" alt="Consultório" className="rounded-lg mb-4" />
+              <img src="public/consultorio.jpeg" alt="Consultório" className="rounded-lg mb-4" />
               <h3 className="font-semibold text-xl">Ambiente acolhedor</h3>
               <p className="text-sm">Clínica pensada para sua tranquilidade.</p>
             </div>
