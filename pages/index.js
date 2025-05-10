@@ -12,7 +12,7 @@ export default function Home() {
 
     const beneficios = [
     {
-      src: '/dentista1.jpeg',
+      src: '/dentista1.jpg',
       alt: 'Imagem dentista',
       title: 'Atendimento Personalizado',
       text: 'Nosso compromisso é oferecer um atendimento humanizado, com foco em cada detalhe do seu sorriso.'
@@ -36,10 +36,10 @@ export default function Home() {
       text: 'Educação e acompanhamento constante para garantir a melhor saúde bucal para você e sua família.'
     },
     {
-      src: '/raiox.jpg',
-      alt: 'Imagem raio-x dental',
-      title: 'Raio-X Digital',
-      text: 'Diagnósticos precisos com exames rápidos e de alta definição realizados na própria clínica.'
+      src: '/implante.jpg',
+      alt: 'Imagem implante dental',
+      title: 'Implantes Dentários',
+      text: 'Recupere seu sorriso com segurança e eficácia, utilizando materiais de alta qualidade e tecnologia avançada.'
     }
   ];
 
