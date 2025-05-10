@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function Home() {
-  const [formData, setFormData] = useState({ nome: '', email: '', mensagem: '' });
+  const [formData, setFormData] = useState({ nome: '', telefone: '', mensagem: '' });
 
   return (
     <main className="bg-white text-gray-800 font-sans">
@@ -31,21 +31,42 @@ export default function Home() {
       {/* Imagens e Benefícios */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-          {["/dentista1.jpg", "/aparelho.jpg", "/consultorio.jpeg"].map((src, i) => (
-            <motion.div
-              key={src}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
-            >
-              <Image src={src} alt="Imagem dentista" width={400} height={300} className="w-full h-60 object-cover" />
-              <div className="p-4">
-                <h3 className="font-bold text-lg mb-2">Benefício {i + 1}</h3>
-                <p className="text-sm text-gray-600">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget vehicula nisl.
-                </p>
-              </div>
-            </motion.div>
-          ))}
+           <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden"
+          >
+            <Image src="/dentista1.jpg" alt="Imagem dentista" width={400} height={300} className="w-full h-60 object-cover" />
+            <div className="p-4">
+              <h3 className="font-bold text-lg mb-2">Atendimento Personalizado</h3>
+              <p className="text-sm text-gray-600">
+                Conte com o cuidado de um dentista experiente, pronto para ouvir suas necessidades e transformar seu sorriso com empatia e precisão.
+              </p>
+            </div>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden"
+          >
+            <Image src="/aparelho.jpg" alt="Imagem aparelho ortodôntico" width={400} height={300} className="w-full h-60 object-cover" />
+            <div className="p-4">
+              <h3 className="font-bold text-lg mb-2">Aparelhos Ortodônticos Modernos</h3>
+              <p className="text-sm text-gray-600">
+                Corrija o alinhamento dos dentes com discrição e conforto, usando tecnologia de ponta em ortodontia.
+              </p>
+            </div>
+          </motion.div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-white rounded-xl shadow-lg overflow-hidden"
+          >
+            <Image src="/consultorio.jpg" alt="Imagem consultório" width={400} height={300} className="w-full h-60 object-cover" />
+            <div className="p-4">
+              <h3 className="font-bold text-lg mb-2">Ambiente Moderno e Acolhedor</h3>
+              <p className="text-sm text-gray-600">
+                Estrutura moderna e acolhedora, equipada para garantir o seu bem-estar em cada consulta.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -85,11 +106,11 @@ export default function Home() {
               onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
             />
             <input
-              type="email"
-              placeholder="Seu e-mail"
+              type="tel"
+              placeholder="Seu telefone"
               className="border p-3 rounded-md"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              value={formData.telefone}
+              onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
             />
             <textarea
               placeholder="Mensagem"
