@@ -10,7 +10,7 @@ export default function Home() {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [isClient, setIsClient] = useState(false); 
 
-  const beneficios = [
+    const beneficios = [
     {
       src: '/dentista1.jpg',
       alt: 'Imagem dentista',
@@ -43,10 +43,10 @@ export default function Home() {
     }
   ];
 
-  useEffect(() => {
+    useEffect(() => {
     // Garantir que o código só seja executado no cliente
     setIsClient(true);
-    if (typeof window !== "undefined") {
+     if (typeof window !== "undefined") {
       const script = document.createElement("script");
       script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCYfISsihAni0j2hLuyzF09tMnrZmPggLM&callback=initMap`;
       script.async = true;
@@ -69,15 +69,11 @@ export default function Home() {
   }, []);
 
   const nextSlide = () => {
-    setCarouselIndex((prevIndex) =>
-      prevIndex < beneficios.length - 1 ? prevIndex + 1 : 0
-    );
+    if (carouselIndex < beneficios.length - 3) setCarouselIndex(carouselIndex + 1);
   };
 
   const prevSlide = () => {
-    setCarouselIndex((prevIndex) =>
-      prevIndex > 0 ? prevIndex - 1 : beneficios.length - 1
-    );
+    if (carouselIndex > 0) setCarouselIndex(carouselIndex - 1);
   };
 
   if (!isClient) {
@@ -105,25 +101,23 @@ export default function Home() {
         </a>
       </motion.section>
 
-      {/* Imagens e Benefícios com Carousel */}
+       {/* Imagens e Benefícios com Carousel */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto relative">
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10">
-            <button
-              onClick={prevSlide}
-              className="bg-white p-2 rounded-full shadow hover:bg-gray-100"
-            >
-              <FaChevronLeft size={20} />
-            </button>
-          </div>
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10">
-            <button
-              onClick={nextSlide}
-              className="bg-white p-2 rounded-full shadow hover:bg-gray-100"
-            >
-              <FaChevronRight size={20} />
-            </button>
-          </div>
+          {carouselIndex > 0 && (
+            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10">
+              <button onClick={prevSlide} className="bg-white p-2 rounded-full shadow hover:bg-gray-100">
+                <FaChevronLeft size={20} />
+              </button>
+            </div>
+          )}
+          {carouselIndex < beneficios.length - 3 && (
+            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10">
+              <button onClick={nextSlide} className="bg-white p-2 rounded-full shadow hover:bg-gray-100">
+                <FaChevronRight size={20} />
+              </button>
+            </div>
+          )}
           <motion.div
             className="grid md:grid-cols-3 gap-8"
             initial={{ opacity: 0 }}
@@ -137,13 +131,7 @@ export default function Home() {
                 transition={{ type: 'spring', stiffness: 300 }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden"
               >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={400}
-                  height={300}
-                  className="w-full h-60 object-cover"
-                />
+                <Image src={item.src} alt={item.alt} width={400} height={300} className="w-full h-60 object-cover" />
                 <div className="p-4">
                   <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                   <p className="text-sm text-gray-600">{item.text}</p>
@@ -153,6 +141,47 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Nova seção: Diferenciais */}
+      <section className="py-20 px-6 bg-cyan-50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-10">Por que escolher nossa clínica?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="text-5xl text-cyan-600 mb-4">🦷</div>
+              <h3 className="text-lg font-semibold mb-2">Equipe Especializada</h3>
+              <p className="text-gray-600">Profissionais capacitados nas diversas áreas da odontologia para cuidar de você.</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl text-cyan-600 mb-4">⌚</div>
+              <h3 className="text-lg font-semibold mb-2">Horários Flexíveis</h3>
+              <p className="text-gray-600">Atendimento em horários adaptados à sua rotina para maior conveniência.</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl text-cyan-600 mb-4">📍</div>
+              <h3 className="text-lg font-semibold mb-2">Localização Acessível</h3>
+              <p className="text-gray-600">Estamos em uma área central com fácil acesso e estacionamento.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Botão WhatsApp */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="fixed bottom-6 right-6 z-50"
+      >
+        <a
+          href="https://wa.me/5500000000000"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition"
+        >
+          WhatsApp
+        </a>
+      </motion.div>
 
       {/* Formulário */}
       <motion.section
@@ -196,7 +225,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* Localização e Contato */}
+     {/* Localização e Contato */}
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           <div className="flex flex-col justify-center">
@@ -219,17 +248,17 @@ export default function Home() {
             </div>
           </div>
           {/* Mapa */}
-          <div>
-            <div
-              id="map"
-              style={{
-                height: "250px",
-                width: "100%",
-                borderRadius: "10px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-              }}
-            ></div>
-          </div>
+            <div>
+              <div
+                id="map"
+                style={{
+                  height: "250px",
+                  width: "100%",
+                  borderRadius: "10px",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                }}
+              ></div>
+            </div>
         </div>
       </section>
 
