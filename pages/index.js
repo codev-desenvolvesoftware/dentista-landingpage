@@ -247,6 +247,8 @@ export default function Home() {
               <p>Seg a Sex: 8h às 18h</p>
             </div>
           </div>
+
+          
           {/* Mapa */}
             <div>
               <div
