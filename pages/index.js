@@ -1,7 +1,5 @@
 // pages/index.js
 import Head from 'next/head';
-'use client';
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
