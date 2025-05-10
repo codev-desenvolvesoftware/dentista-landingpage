@@ -176,7 +176,7 @@ export default function Home() {
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-semibold mb-4">Informações da Clínica</h3>
             <div className="flex items-center mb-3">
-              <Image src="/icons/location.svg" alt="Ícone endereço" width={24} height={24} className="mr-2" />
+              <Image src="/icons/location.png" alt="Ícone endereço" width={24} height={24} className="mr-2" />
               <p>Av. Paulista, 1000 - Bela Vista, São Paulo - SP</p>
             </div>
             <div className="flex items-center mb-3">
