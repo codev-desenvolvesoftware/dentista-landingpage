@@ -1,11 +1,30 @@
 // pages/index.js
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 export default function Home() {
   const [formData, setFormData] = useState({ nome: '', telefone: '', mensagem: '' });
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCYfISsihAni0j2hLuyzF09tMnrZmPggLM&callback=initMap`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    window.initMap = function () {
+      new window.google.maps.Map(document.getElementById('map'), {
+        center: { lat: -23.57338, lng: -46.65657 },
+        zoom: 15,
+      });
+    };
+
+    return () => {
+      delete window.initMap;
+    };
+  }, []);
 
   return (
     <main className="bg-white text-gray-800 font-sans">
@@ -193,13 +212,8 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <h2 className="text-3xl font-bold mb-4">Nossa Localização</h2>
-            <iframe
-              className="w-full h-64 rounded-lg border"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.9139930564397!2d-46.65657328447519!3d-23.57338036854386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2354a5e3d%3A0xd59e7f5098cda89a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1625234123456"
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
+            <h3 className="text-3xl font-bold mb-4">Nossa Localização</h3>
+            <div id="map" className="w-full h-64 rounded-lg border"></div>
           </div>
         </div>
       </section>
