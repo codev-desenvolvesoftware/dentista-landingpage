@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export default function Home() {
   const [formData, setFormData] = useState({ nome: '', telefone: '', mensagem: '' });
@@ -47,62 +48,44 @@ export default function Home() {
         </a>
       </motion.section>
 
-      {/* Imagens e Benefícios */}
+       {/* Imagens e Benefícios com Carousel */}
       <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="bg-white rounded-xl shadow-lg overflow-hidden"
-          >
-            <Image src="/dentista1.jpg" alt="Imagem dentista" width={400} height={300} className="w-full h-60 object-cover" />
-            <div className="p-4">
-              <h3 className="font-bold text-lg mb-2">Atendimento Personalizado</h3>
-              <p className="text-sm text-gray-600">
-                Conte com o cuidado de um dentista experiente, pronto para ouvir suas necessidades e transformar seu sorriso com empatia e precisão.
-              </p>
+        <div className="max-w-6xl mx-auto relative">
+          {carouselIndex > 0 && (
+            <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10">
+              <button onClick={prevSlide} className="bg-white p-2 rounded-full shadow hover:bg-gray-100">
+                <FaChevronLeft size={20} />
+              </button>
             </div>
-          </motion.div>
+          )}
+          {carouselIndex < beneficios.length - 3 && (
+            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10">
+              <button onClick={nextSlide} className="bg-white p-2 rounded-full shadow hover:bg-gray-100">
+                <FaChevronRight size={20} />
+              </button>
+            </div>
+          )}
           <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="bg-white rounded-xl shadow-lg overflow-hidden"
+            className="grid md:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            <Image src="/aparelho.jpg" alt="Imagem aparelho ortodôntico" width={400} height={300} className="w-full h-60 object-cover" />
-            <div className="p-4">
-              <h3 className="font-bold text-lg mb-2">Mais beleza e conforto nos Aparelhos Ortodônticos</h3>
-              <p className="text-sm text-gray-600">
-                Corrija o alinhamento dos dentes com discrição e conforto, usando tecnologia de ponta em ortodontia.
-              </p>
-            </div>
+            {beneficios.slice(carouselIndex, carouselIndex + 3).map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
+              >
+                <Image src={item.src} alt={item.alt} width={400} height={300} className="w-full h-60 object-cover" />
+                <div className="p-4">
+                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.text}</p>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="bg-white rounded-xl shadow-lg overflow-hidden"
-          >
-            <Image src="/consultorio.jpeg" alt="Imagem consultório" width={400} height={300} className="w-full h-60 object-cover" />
-            <div className="p-4">
-              <h3 className="font-bold text-lg mb-2">Ambiente Moderno e Acolhedor</h3>
-              <p className="text-sm text-gray-600">
-                Estrutura moderna e acolhedora, equipada para garantir o seu bem-estar em cada consulta.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-       {/* Nova seção: Depoimentos */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-10">O que nossos pacientes dizem</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gray-50 p-6 rounded-lg shadow">
-              <p className="text-gray-700 italic">“Excelente atendimento e resultado maravilhoso! Recomendo de olhos fechados.”</p>
-              <p className="mt-4 font-bold text-cyan-700">Juliana M.</p>
-            </div>
-            <div className="bg-gray-50 p-6 rounded-lg shadow">
-              <p className="text-gray-700 italic">“Ambiente muito acolhedor e profissionais extremamente competentes.”</p>
-              <p className="mt-4 font-bold text-cyan-700">Carlos F.</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -212,7 +195,7 @@ export default function Home() {
             </div>
           </div>
           <div>
-            <h3 className="text-3xl font-bold mb-4">Nossa Localização</h3>
+            <h4 className="text-3xl font-bold mb-4">Nossa Localização</h4>
             <div id="map" className="w-full h-64 rounded-lg border"></div>
           </div>
         </div>
