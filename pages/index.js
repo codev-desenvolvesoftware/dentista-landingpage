@@ -252,7 +252,7 @@ export default function Home() {
               <div
                 id="map"
                 style={{
-                  height: "400px",
+                  height: "250px",
                   width: "100%",
                   borderRadius: "10px",
                   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -263,8 +263,17 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-100 text-center text-sm text-gray-500 py-6">
-        © 2025 Clínica OdontoPro. Todos os direitos reservados.
+      <footer className="bg-gray-800 text-white py-6">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Clínica Odontológica. Todos os direitos reservados.
+          </p>
+          <p className="text-sm">
+            <a href="mailto:contato@clinicadentista.com" className="hover:text-cyan-400">
+              contato@clinicadentista.com
+            </a>
+          </p>
+        </div>
       </footer>
     </main>
   );
