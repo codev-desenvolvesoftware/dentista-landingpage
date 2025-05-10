@@ -15,12 +15,16 @@ export default function Home() {
   const handleSubmit = (e) => {
   e.preventDefault();
 
+  const serviceID = 'default_service';
+  const templateID = 'template_trj7bgg';
+  const publicKey = 'K3AITkZDmdb8W1Z6E';
+
   emailjs
-    .send(
-      'template_trj7bgg', // encontrado no painel do EmailJS
-      'Contato do site', // nome do seu template
+    .sendForm(
+      serviceID,
+      templateID,
       formData,
-      'K3AITkZDmdb8W1Z6E'   // sua public key do EmailJS
+      publicKey
     )
     .then(() => {
       alert('Mensagem enviada com sucesso!');
