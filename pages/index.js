@@ -176,19 +176,19 @@ export default function Home() {
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-semibold mb-4">Informações da Clínica</h3>
             <div className="flex items-center mb-3">
-              <Image src="/icons/location.png" alt="Ícone endereço" width={24} height={24} className="mr-2" />
+              <Image src="/location.png" alt="Ícone endereço" width={24} height={24} className="mr-2" />
               <p>Av. Paulista, 1000 - Bela Vista, São Paulo - SP</p>
             </div>
             <div className="flex items-center mb-3">
-              <Image src="/icons/phone.svg" alt="Ícone telefone" width={24} height={24} className="mr-2" />
+              <Image src="/phone.png" alt="Ícone telefone" width={24} height={24} className="mr-2" />
               <p>(11) 1234-5678</p>
             </div>
             <div className="flex items-center mb-3">
-              <Image src="/icons/email.svg" alt="Ícone email" width={24} height={24} className="mr-2" />
+              <Image src="/email.png" alt="Ícone email" width={24} height={24} className="mr-2" />
               <p>contato@clinicadentista.com</p>
             </div>
             <div className="flex items-center mb-3">
-              <Image src="/icons/clock.svg" alt="Ícone horário" width={24} height={24} className="mr-2" />
+              <Image src="/clock.png" alt="Ícone horário" width={24} height={24} className="mr-2" />
               <p>Seg a Sex: 8h às 18h</p>
             </div>
           </div>
