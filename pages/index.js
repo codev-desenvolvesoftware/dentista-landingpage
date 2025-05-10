@@ -4,11 +4,33 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 
 export default function Home() {
   const [formData, setFormData] = useState({ nome: '', telefone: '', mensagem: '' });
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [isClient, setIsClient] = useState(false); 
+
+
+  const handleSubmit = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .send(
+      'template_trj7bgg', // encontrado no painel do EmailJS
+      'Contato do site', // nome do seu template
+      formData,
+      'K3AITkZDmdb8W1Z6E'   // sua public key do EmailJS
+    )
+    .then(() => {
+      alert('Mensagem enviada com sucesso!');
+      setFormData({ nome: '', telefone: '', mensagem: '' });
+    })
+    .catch((err) => {
+      console.error('Erro ao enviar:', err);
+      alert('Erro ao enviar a mensagem. Tente novamente.');
+    });
+};
 
     const beneficios = [
     {
