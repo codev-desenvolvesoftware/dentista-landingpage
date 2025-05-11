@@ -248,8 +248,8 @@ export default function Home() {
       >
         {/* Botão Ligar */}
         <a
-          href="tel:+551112345678"
-          className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition"
+          href="tel:1112345678"
+          className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition flex items-center justify-center"
         >
           <FaPhoneAlt className="text-white" />
           Ligar
