@@ -1,5 +1,5 @@
 // pages/index.js
-
+import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -103,6 +103,21 @@ export default function Home() {
   }
 
   return (
+    <Html lang="pt-br">
+      <Head>
+        <title>Clínica Odontológica | Sorria com Confiança</title>
+        <meta
+          name="description"
+          content="Agende uma consulta e conquiste um sorriso perfeito com nosso atendimento especializado."
+        />
+        <meta property="og:title" content="Clínica Odontológica" />
+        <meta
+          property="og:description"
+          content="Sorria com confiança com os serviços da nossa clínica odontológica."
+        />
+        <meta property="og:image" content="URL_DA_IMAGEM" />
+        <meta property="og:url" content="URL_DA_SUA_PÁGINA" />
+      </Head>
     <main className="bg-white text-gray-800 font-sans">
       {/* Hero Section */}
       <motion.section
@@ -153,7 +168,7 @@ export default function Home() {
                 transition={{ type: 'spring', stiffness: 300 }}
                 className="bg-white rounded-xl shadow-lg overflow-hidden"
               >
-                <Image src={item.src} alt={item.alt} width={400} height={300} className="w-full h-60 object-cover" />
+                <Image src={item.src} alt={item.alt} width={400} height={300} className="w-full h-60 object-cover" loading="lazy" />
                 <div className="p-4">
                   <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                   <p className="text-sm text-gray-600">{item.text}</p>
@@ -303,5 +318,6 @@ export default function Home() {
         </div>
       </footer>
     </main>
+    </Html>
   );
 }
