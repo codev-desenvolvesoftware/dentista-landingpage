@@ -131,7 +131,7 @@ export default function Home() {
           Conquiste mais pacientes com uma presença online profissional para seu consultório odontológico.
         </p>
         <a
-          href="#formulario"
+          href="https://wa.me/5511943665990"
           className="bg-white text-cyan-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200 transition"
         >
           Agende uma Demonstração
@@ -206,9 +206,9 @@ export default function Home() {
       {/* Convênios */}
       <section className="bg-white py-20 px-6">
   <div className="max-w-6xl mx-auto text-center">
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
+    <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
       Convênios que Atendemos
-    </h2>
+    </h3>
     <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
       Facilitamos seu atendimento com diversas operadoras. Veja abaixo alguns dos convênios aceitos pela nossa clínica:
     </p>
@@ -217,9 +217,10 @@ export default function Home() {
         { nome: "Amil", img: "/convenios/amil.png" },
         { nome: "Bradesco Saúde", img: "/convenios/bradesco.png" },
         { nome: "SulAmérica", img: "/convenios/sulamerica.png" },
+        { nome: "Omint", img: "/convenios/omint.png" },
         { nome: "Unimed", img: "/convenios/unimed.png" },
         { nome: "Porto Saúde", img: "/convenios/porto.png" },
-        { nome: "NotreDame", img: "/convenios/notredame.png" },
+        { nome: "Interodonto", img: "/convenios/interodonto.png" },
         { nome: "OdontoPrev", img: "/convenios/odontoprev.png" },
       ].map((convenio, idx) => (
         <div
@@ -315,11 +316,15 @@ export default function Home() {
             </div>
             <div className="flex items-center mb-3">
               <Image src="/phone.png" alt="Ícone telefone" width={24} height={24} className="mr-2" />
-              <p>(11) 1234-5678</p>
+              <p>(11) 1234-5678
+                <a href="tel:+551112345678" className="fixed bottom-20 right-6 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition z-50">
+                📞 Ligar
+                </a>
+              </p> 
             </div>            
             <div className="flex items-center mb-3">
               <Image src="/clock.png" alt="Ícone horário" width={24} height={24} className="mr-2" />
-              <p>Seg a Sex: 8h às 18h</p>
+              <p>Segunda a Sexta das 9h às 18h</p>
             </div>
 
             {/* Redes sociais */}
