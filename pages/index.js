@@ -1,6 +1,6 @@
 // pages/index.js
-import Head from 'next/head';
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
@@ -11,6 +11,7 @@ export default function Home() {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [isClient, setIsClient] = useState(false); 
 
+  const formRef = useRef();
 
   const handleSubmit = (e) => {
   e.preventDefault();
@@ -20,12 +21,7 @@ export default function Home() {
   const publicKey = 'K3AITkZDmdb8W1Z6E';
 
   emailjs
-    .sendForm(
-      serviceID,
-      templateID,
-      formData,
-      publicKey
-    )
+    .sendForm(serviceID, templateID, formRef.current, publicKey)
     .then(() => {
       alert('Mensagem enviada com sucesso!');
       setFormData({ nome: '', telefone: '', mensagem: '' });
@@ -219,35 +215,38 @@ export default function Home() {
       >
         <div className="max-w-xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Entre em Contato</h2>
-          <form className="grid gap-4">
-            <input
-              type="text"
-              placeholder="Seu nome"
-              className="border p-3 rounded-md"
-              value={formData.nome}
-              onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
-            />
-            <input
-              type="tel"
-              placeholder="Seu telefone"
-              className="border p-3 rounded-md"
-              value={formData.telefone}
-              onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
-            />
-            <textarea
-              placeholder="Mensagem"
-              className="border p-3 rounded-md"
-              rows="4"
-              value={formData.mensagem}
-              onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-cyan-600 text-white px-6 py-3 rounded-md hover:bg-cyan-700 transition"
-            >
-              Enviar
-            </button>
-          </form>
+          <form ref={formRef} onSubmit={handleSubmit} className="grid gap-4">
+  <input
+    type="text"
+    name="nome"
+    placeholder="Seu nome"
+    className="border p-3 rounded-md"
+    value={formData.nome}
+    onChange={(e) => setFormData({ ...formData, nome: e.target.value })}
+  />
+  <input
+    type="tel"
+    name="telefone"
+    placeholder="Seu telefone"
+    className="border p-3 rounded-md"
+    value={formData.telefone}
+    onChange={(e) => setFormData({ ...formData, telefone: e.target.value })}
+  />
+  <textarea
+    name="mensagem"
+    placeholder="Mensagem"
+    className="border p-3 rounded-md"
+    rows="4"
+    value={formData.mensagem}
+    onChange={(e) => setFormData({ ...formData, mensagem: e.target.value })}
+  ></textarea>
+  <button
+    type="submit"
+    className="bg-cyan-600 text-white px-6 py-3 rounded-md hover:bg-cyan-700 transition"
+  >
+    Enviar
+  </button>
+</form>
         </div>
       </motion.section>
 
