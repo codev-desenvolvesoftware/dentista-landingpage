@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 export default function Home() {
@@ -275,19 +275,28 @@ export default function Home() {
               <p>Av. Paulista, 1000 - Bela Vista, São Paulo - SP</p>
             </div>
             <div className="flex items-center mb-3">
-              <Image src="/phone.png" alt="Ícone telefone" width={24} height={24} className="mr-2" />
-              <p>(11) 1234-5678</p>
-            </div>
-            <div className="flex items-center mb-3">
               <Image src="/email.png" alt="Ícone email" width={24} height={24} className="mr-2" />
               <p>contato@clinicadentista.com</p>
             </div>
             <div className="flex items-center mb-3">
+              <Image src="/phone.png" alt="Ícone telefone" width={24} height={24} className="mr-2" />
+              <p>(11) 1234-5678</p>
+            </div>            
+            <div className="flex items-center mb-3">
               <Image src="/clock.png" alt="Ícone horário" width={24} height={24} className="mr-2" />
               <p>Seg a Sex: 8h às 18h</p>
             </div>
-          </div>
 
+            {/* Redes sociais */}
+            <div className="flex items-center gap-4 mt-4">
+              <a href="https://instagram.com/sua_clinica" target="_blank" rel="noopener noreferrer">
+                <FaInstagram className="text-pink-600 text-2xl hover:scale-110 transition-transform" />
+              </a>
+              <a href="https://facebook.com/sua_clinica" target="_blank" rel="noopener noreferrer">
+                <FaFacebookF className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
+              </a>
+            </div>
+          </div>
           
           {/* Mapa */}
             <div>
