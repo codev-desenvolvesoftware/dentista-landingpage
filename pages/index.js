@@ -103,7 +103,7 @@ export default function Home() {
   }
 
   return (
-    <Html lang="pt-br">
+    <>
       <Head>
         <title>Clínica Odontológica | Sorria com Confiança</title>
         <meta
@@ -318,6 +318,6 @@ export default function Home() {
         </div>
       </footer>
     </main>
-    </Html>
+  </>
   );
 }
