@@ -288,13 +288,26 @@ export default function Home() {
             </div>
 
             {/* Redes sociais */}
-            <div className="flex items-center gap-4 mt-4">
-              <a href="https://instagram.com/sua_clinica" target="_blank" rel="noopener noreferrer">
-                <FaInstagram className="text-pink-600 text-2xl hover:scale-110 transition-transform" />
-              </a>
-              <a href="https://facebook.com/sua_clinica" target="_blank" rel="noopener noreferrer">
-                <FaFacebookF className="text-blue-600 text-2xl hover:scale-110 transition-transform" />
-              </a>
+            <div className="mt-6">
+              <h4 className="text-lg font-medium mb-2">Siga nas redes sociais</h4>
+              <div className="flex justify-center md:justify-start gap-4">
+                <a
+                  href="https://instagram.com/sua_clinica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-pink-100 hover:bg-pink-200 transition-colors"
+                >
+                  <FaInstagram className="text-pink-600 text-xl" />
+                </a>
+                <a
+                  href="https://facebook.com/sua_clinica"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-full bg-blue-100 hover:bg-blue-200 transition-colors"
+                >
+                  <FaFacebookF className="text-blue-600 text-xl" />
+                </a>
+              </div>
             </div>
           </div>
           
