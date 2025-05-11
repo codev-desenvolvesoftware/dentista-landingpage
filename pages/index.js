@@ -239,14 +239,14 @@ export default function Home() {
   </div>
 </section>
 
-
-      {/* Botão Ligar */}
+      {/* Botões Flutuantes: Ligar e WhatsApp*/}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="fixed bottom-20 right-6 z-50"
+        className="fixed bottom-6 right-6 z-50 flex flex-col gap-3"
       >
+        {/* Botão Ligar */}
         <a
           href="tel:+551112345678"
           className="flex items-center gap-2 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition"
@@ -254,15 +254,8 @@ export default function Home() {
           <FaPhoneAlt className="text-white" />
           Ligar
         </a>
-      </motion.div> 
 
-      {/* Botão WhatsApp */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="fixed bottom-6 right-6 z-50"
-      >
+        {/* Botão WhatsApp */}
         <a
           href="https://wa.me/5511943665990"
           target="_blank"
@@ -272,7 +265,7 @@ export default function Home() {
           <FaWhatsapp className="text-white text-xl" />
           WhatsApp
         </a>
-      </motion.div>
+      </motion.div> 
 
       {/* Formulário */}
       <motion.section
