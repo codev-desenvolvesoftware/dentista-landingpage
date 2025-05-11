@@ -242,14 +242,14 @@ export default function Home() {
       {/* Botões Flutuantes: Ligar e WhatsApp*/}
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}  
         transition={{ duration: 1 }}
         className="fixed bottom-6 right-6 z-50 flex flex-col gap-3"
       >
         {/* Botão Ligar */}
         <a
           href="tel:+551112345678"
-          className="flex items-center gap-2 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition"
+          className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition"
         >
           <FaPhoneAlt className="text-white" />
           Ligar
