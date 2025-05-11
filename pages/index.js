@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FaChevronLeft, FaChevronRight, FaInstagram, FaFacebookF } from 'react-icons/fa';
+import { FaChevronLeft, FaChevronRight, FaInstagram, FaFacebookF, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 
 export default function Home() {
@@ -239,6 +239,23 @@ export default function Home() {
   </div>
 </section>
 
+
+      {/* Botão Ligar */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="fixed bottom-20 right-6 z-50"
+      >
+        <a
+          href="tel:+551112345678"
+          className="flex items-center gap-2 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition"
+        >
+          <FaPhoneAlt className="text-white" />
+          Ligar
+        </a>
+      </motion.div> 
+
       {/* Botão WhatsApp */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -250,8 +267,9 @@ export default function Home() {
           href="https://wa.me/5511943665990"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition"
+          className="flex items-center gap-2 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition"
         >
+          <FaWhatsapp className="text-white text-xl" />
           WhatsApp
         </a>
       </motion.div>
@@ -316,11 +334,7 @@ export default function Home() {
             </div>
             <div className="flex items-center mb-3">
               <Image src="/phone.png" alt="Ícone telefone" width={24} height={24} className="mr-2" />
-              <p>(11) 1234-5678
-                <a href="tel:+551112345678" className="fixed bottom-20 right-6 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition z-50">
-                📞 Ligar
-                </a>
-              </p> 
+              <p>(11) 1234-5678</p> 
             </div>            
             <div className="flex items-center mb-3">
               <Image src="/clock.png" alt="Ícone horário" width={24} height={24} className="mr-2" />
