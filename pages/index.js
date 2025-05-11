@@ -179,7 +179,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Nova seção: Diferenciais */}
+      {/* Diferenciais */}
       <section className="py-20 px-6 bg-cyan-50">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-10">Por que escolher nossa clínica?</h2>
@@ -202,6 +202,41 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Convênios */}
+      <section className="bg-white py-20 px-6">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12">
+      Convênios que Atendemos
+    </h2>
+    <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
+      Facilitamos seu atendimento com diversas operadoras. Veja abaixo alguns dos convênios aceitos pela nossa clínica:
+    </p>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center">
+      {[
+        { nome: "Amil", img: "/convenios/amil.png" },
+        { nome: "Bradesco Saúde", img: "/convenios/bradesco.png" },
+        { nome: "SulAmérica", img: "/convenios/sulamerica.png" },
+        { nome: "Unimed", img: "/convenios/unimed.png" },
+        { nome: "Porto Saúde", img: "/convenios/porto.png" },
+        { nome: "NotreDame", img: "/convenios/notredame.png" },
+        { nome: "OdontoPrev", img: "/convenios/odontoprev.png" },
+      ].map((convenio, idx) => (
+        <div
+          key={idx}
+          className="bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:scale-105"
+        >
+          <img
+            src={convenio.img}
+            alt={`Convênio ${convenio.nome}`}
+            className="h-16 mx-auto object-contain mb-2"
+          />
+          <p className="text-sm text-gray-700 font-medium">{convenio.nome}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Botão WhatsApp */}
       <motion.div
