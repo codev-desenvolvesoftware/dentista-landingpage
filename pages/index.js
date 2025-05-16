@@ -225,7 +225,7 @@ export default function Home() {
       ].map((convenio, idx) => (
         <div
           key={idx}
-          className="bg-gray-50 p-4 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:scale-105"
+          className="p-4 rounded-xl shadow-sm hover:shadow-md transition duration-300 transform hover:scale-105"
         >
           <img
             src={convenio.img}
